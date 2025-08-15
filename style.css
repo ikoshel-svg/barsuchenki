@@ -827,26 +827,24 @@ select.form-control {
 }
 
 .slide {
-  position: absolute; /* можно оставить для переключения слайдов */
+  position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh; /* полная высота экрана */
+  left: 50%; 
+  width: 50%;
+  max-width: 1200px; 
+  height: 100vh;
   opacity: 0;
-  transform: translateX(100px);
+  transform: translateX(100px) translateX(-50%); /* сдвиг + центрирование */
   transition: all var(--duration-normal) var(--ease-standard);
-  overflow-y: auto; /* вертикальная прокрутка внутри слайда */
+  overflow-y: auto;      /* прокрутка внутри слайда */
   padding: var(--space-32);
   box-sizing: border-box;
-
-  /* Уберите или измените flex для прокрутки */
-  display: block; /* вместо flex */
+  display: block; 
 }
 
-/* Активный слайд показывается и доступен для прокрутки */
 .slide.active {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateX(0) translateX(-50%);
   z-index: 10; /* поверх остальных */
 }
 
