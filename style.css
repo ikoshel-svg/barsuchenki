@@ -812,30 +812,35 @@ select.form-control {
   backdrop-filter: blur(10px);
 }
 
-/* Slides Container */
 .slides-container {
   width: 100%;
-  height: 100%;
+  height: 100vh; /* высота окна просмотра */
   position: relative;
+  overflow: hidden; /* чтобы показывался только активный слайд */
 }
 
 .slide {
-  position: absolute;
+  position: absolute; /* можно оставить для переключения слайдов */
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh; /* полная высота экрана */
   opacity: 0;
   transform: translateX(100px);
   transition: all var(--duration-normal) var(--ease-standard);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow-y: auto; /* вертикальная прокрутка внутри слайда */
   padding: var(--space-32);
   box-sizing: border-box;
+
+  /* Уберите или измените flex для прокрутки */
+  display: block; /* вместо flex */
 }
 
+/* Активный слайд показывается и доступен для прокрутки */
 .slide.active {
   opacity: 1;
   transform: translateX(0);
+  z-index: 10; /* поверх остальных */
 }
 
 .slide-content {
