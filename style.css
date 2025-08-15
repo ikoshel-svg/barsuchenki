@@ -763,19 +763,24 @@ select.form-control {
   pointer-events: none;
 }
 
-/* Navigation */
+/* Navigation fixed внизу */
 .navigation {
-  position: absolute;
-  top: var(--space-20);
-  left: var(--space-20);
-  right: var(--space-20);
-  z-index: 100;
+  position: fixed;          /* фиксируем внизу */
+  bottom: 0;                /* у нижнего края экрана */
+  left: 0;
+  right: 0;
+  z-index: 1000;            /* наверху */
   display: flex;
-  justify-content: space-between;
+  justify-content: center;  /* центрируем кнопки по горизонтали */
   align-items: center;
   gap: var(--space-16);
+  padding: var(--space-12) 0; /* вертикальные отступы */
+  background: rgba(255, 255, 255, 0.95); /* светлый фон с небольшим прозрачным эффектом */
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1); /* легкая тень сверху */
+  backdrop-filter: blur(10px); /* размытие фона (опционально, для современного эффекта) */
 }
 
+/* Кнопки — расположение и стили остаются, можно добавить ширину */
 .nav-btn, .home-btn {
   background: rgba(50, 184, 198, 0.9);
   color: var(--color-slate-900);
@@ -788,14 +793,16 @@ select.form-control {
   font-size: var(--font-size-sm);
   text-shadow: 0 0 10px rgba(50, 184, 198, 0.5);
   box-shadow: 0 0 20px rgba(50, 184, 198, 0.3);
+  min-width: 90px;  /* минимальная ширина, кнопки будут одинаковой ширины */
+  text-align: center;
 }
 
+/* Наведение и disabled остаются без изменений */
 .nav-btn:hover, .home-btn:hover {
   background: var(--color-teal-300);
   box-shadow: 0 0 30px rgba(50, 184, 198, 0.6);
   transform: translateY(-2px);
 }
-
 .nav-btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
