@@ -829,22 +829,21 @@ select.form-control {
 .slide {
   position: absolute;
   top: 0;
-  left: 50%;                /* смещение к центру по горизонтали */
-  width: 95%;               /* ширина слайда 50% экрана */
-  max-width: 1820px;        /* ограничиваем максимальную ширину */
-  height: 100vh;            /* высота по высоте экрана */
+  left: 0;
+  width: 99%;
+  max-width: 1200px;
+  height: 100vh;
   opacity: 0;
-  transform: translateX(-50%) translateX(100px);  /* центрируем + сдвиг для анимации */
+  transform: translateX(100px); /* только сдвиг для анимации */
   transition: all var(--duration-normal) var(--ease-standard);
-  overflow-y: auto;         /* прокрутка, если контент высок */
+  overflow-y: auto;
   padding: var(--space-32);
   box-sizing: border-box;
   display: block;
 }
-
 .slide.active {
   opacity: 1;
-  transform: translateX(-50%) translateX(0); 
+  transform: translateX(0);
   z-index: 10;
 }
 
