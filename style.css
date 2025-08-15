@@ -1096,9 +1096,18 @@ select.form-control {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .slide {
+    width: 100%; 
+    max-width: none;
+    left: 0; 
+    transform: translateX(0);
+    height: auto;
+    overflow-y: visible;
+    padding: var(--space-20);  
+  }
   .navigation {
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
+    flex-direction: row ;
+    flex-wrap: nowrap;
     gap: var(--space-8);
     justify-content: center;
   }
