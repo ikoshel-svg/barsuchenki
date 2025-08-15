@@ -765,19 +765,19 @@ select.form-control {
 
 /* Navigation fixed внизу */
 .navigation {
-  position: fixed;          /* фиксируем внизу */
-  bottom: 0;                /* у нижнего края экрана */
+  position: fixed;
+  bottom: 0; 
   left: 0;
   right: 0;
-  z-index: 1000;            /* наверху */
+  z-index: 1000;  
   display: flex;
-  justify-content: center;  /* центрируем кнопки по горизонтали */
+  justify-content: center; 
   align-items: center;
   gap: var(--space-16);
   padding: var(--space-12) 0; /* вертикальные отступы */
   background: rgba(255, 255, 255, 0); /* полностью прозрачный фон */
-  box-shadow: none; /* если тень не нужна - уберите */
-  backdrop-filter: none; /* убираем размытие, если оно было */
+  box-shadow: none; /* убираем тень */
+  backdrop-filter: none; /* убираем размытие */
 }
 
 /* Кнопки — расположение и стили остаются, можно добавить ширину */
@@ -1097,22 +1097,20 @@ select.form-control {
 /* Responsive Design */
 @media (max-width: 768px) {
   .navigation {
-    flex-direction: column;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
     gap: var(--space-8);
+    justify-content: center;
   }
-  
   .cocktail-info {
     grid-template-columns: 1fr;
   }
-  
   .slide-content {
     padding: var(--space-20);
   }
-  
   .bar-title {
     font-size: var(--font-size-3xl);
   }
-  
   .cocktail-title {
     font-size: var(--font-size-2xl);
   }
