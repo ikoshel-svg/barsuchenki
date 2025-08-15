@@ -829,23 +829,23 @@ select.form-control {
 .slide {
   position: absolute;
   top: 0;
-  left: 50%; 
-  width: 50%;
-  max-width: 1200px; 
-  height: 100vh;
+  left: 50%;                /* смещение к центру по горизонтали */
+  width: 50%;               /* ширина слайда 50% экрана */
+  max-width: 1200px;        /* ограничиваем максимальную ширину */
+  height: 100vh;            /* высота по высоте экрана */
   opacity: 0;
-  transform: translateX(100px) translateX(-50%); /* сдвиг + центрирование */
+  transform: translateX(-50%) translateX(100px);  /* центрируем + сдвиг для анимации */
   transition: all var(--duration-normal) var(--ease-standard);
-  overflow-y: auto;      /* прокрутка внутри слайда */
+  overflow-y: auto;         /* прокрутка, если контент высок */
   padding: var(--space-32);
   box-sizing: border-box;
-  display: block; 
+  display: block;
 }
 
 .slide.active {
   opacity: 1;
-  transform: translateX(0) translateX(-50%);
-  z-index: 10; /* поверх остальных */
+  transform: translateX(-50%) translateX(0); 
+  z-index: 10;
 }
 
 .slide-content {
@@ -1095,16 +1095,7 @@ select.form-control {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
-  .slide {
-    width: 100%; 
-    max-width: none;
-    left: 0; 
-    transform: translateX(0);
-    height: auto;
-    overflow-y: visible;
-    padding: var(--space-20);  
-  }
+@media (max-width: 1200px) {
   .navigation {
     flex-direction: row ;
     flex-wrap: nowrap;
